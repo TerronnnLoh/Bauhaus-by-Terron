@@ -27,7 +27,7 @@ const colorMap = {
   yellow: 'bg-[#F0C020] text-black',
   black: 'bg-[#121212] text-white',
   white: 'bg-white text-black',
-  grey: 'bg-[#ebebeb] text-black',
+  grey: 'bg-[#E0E0E0] text-black',
 };
 
 export const BauhausCard = React.forwardRef<HTMLDivElement, BauhausCardProps>(

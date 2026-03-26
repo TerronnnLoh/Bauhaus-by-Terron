@@ -105,7 +105,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ category, index }) => {
 
 export const Skills: React.FC = () => {
   return (
-    <section className="section-block section-block-red section-block-skills border-b-4 border-black">
+    <section className="section-block section-block-red section-block-skills border-4 border-black">
       <div className="container mx-auto px-4 md:px-8">
         <h2 className="mb-12 uppercase">Tech Stack</h2>
 

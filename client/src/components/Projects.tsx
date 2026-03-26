@@ -44,7 +44,7 @@ const projects: Project[] = [
 
 export const Projects: React.FC = () => {
   return (
-    <section className="section-block section-block-red">
+    <section className="section-block section-block-yellow">
       <div className="container mx-auto px-4 md:px-8">
         <h2 className="text-white mb-12 uppercase">Projects</h2>
 

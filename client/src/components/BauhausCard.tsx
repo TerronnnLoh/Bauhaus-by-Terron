@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils';
 
 interface BauhausCardProps {
   children: React.ReactNode;
-  color?: 'red' | 'blue' | 'yellow' | 'black' | 'white';
+  color?: 'red' | 'blue' | 'yellow' | 'black' | 'white' | 'grey';
   className?: string;
   cornerDecoration?: boolean;
   rotated?: boolean;
@@ -27,6 +27,7 @@ const colorMap = {
   yellow: 'bg-[#F0C020] text-black',
   black: 'bg-[#121212] text-white',
   white: 'bg-white text-black',
+  grey: 'bg-[#ebebeb] text-black',
 };
 
 export const BauhausCard = React.forwardRef<HTMLDivElement, BauhausCardProps>(

@@ -10,7 +10,7 @@ export const Experience: React.FC = () => {
   return (
     <section className="section-block section-block-off-white border-b-4 border-black">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl sm:text-6xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-12 lg:mb-16">
+        <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-tight mb-8">
           Experience
         </h2>
 
@@ -90,6 +90,38 @@ export const Experience: React.FC = () => {
                   </BauhausCard>
                 ))}
               </div>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            <div className="animate-slide-in-left">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tighter mb-2">
+                Makerspace NYP
+              </h3>
+              <p className="text-lg font-bold uppercase text-gray-700 mb-3">
+                Student Assistant Coach
+              </p>
+              <p className="text-sm font-medium uppercase tracking-widest text-gray-600">
+                Apr 2024 – Aug 2024
+              </p>
+            </div>
+
+            <div className="space-y-4 animate-slide-in-right">
+              <BauhausCard color="white" cornerDecoration className="p-6">
+                <h4 className="font-bold uppercase mb-3 text-base sm:text-lg">What I Do</h4>
+                <ul className="font-medium text-sm space-y-2">
+                  <li>• Events</li>
+                  <li>• Workshops</li>
+                  <li>• Equipment Maintenance</li>
+                </ul>
+              </BauhausCard>
+
+              <BauhausCard color="white" cornerDecoration className="p-6">
+                <h4 className="font-bold uppercase mb-3 text-base sm:text-lg">Skills</h4>
+                <p className="font-medium text-sm leading-relaxed">
+                  Leathercraft, Laser Painting, Woodworking, 3D Printing, Tufting, Sewing, Cardboard Modelling, Machinery Maintenance
+                </p>
+              </BauhausCard>
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ export const About: React.FC = () => {
 
           {/* Content */}
           <div className="md:col-span-2 animate-slide-in-right">
-            <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-tight">About</h2>
+            <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-tight mb-8">About</h2>
             <p className="text-lg text-black leading-relaxed font-body">
               Motivated IT professional with hands-on experience in backend development, system
               integration, and cloud-native environments. Proficient in Java, Python, REST APIs,

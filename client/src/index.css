@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Bauhaus Primary Colors - Exact Specification */
+  --bauhaus-red: #D02020;
+  --bauhaus-blue: #1040C0;
+  --bauhaus-yellow: #F0C020;
+  --bauhaus-black: #121212;
+  --bauhaus-white: #FFFFFF;
+  --bauhaus-off-white: #F0F0F0;
+  --bauhaus-muted: #E0E0E0;
+
+  /* Typography */
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+
+  /* Semantic Colors */
+  --primary: var(--bauhaus-blue);
+  --primary-foreground: var(--bauhaus-white);
+  --sidebar-primary: var(--bauhaus-blue);
+  --sidebar-primary-foreground: var(--bauhaus-white);
+  --chart-1: var(--bauhaus-red);
+  --chart-2: var(--bauhaus-blue);
+  --chart-3: var(--bauhaus-yellow);
+  --chart-4: var(--bauhaus-black);
+  --chart-5: var(--bauhaus-white);
+
+  --radius: 0;
+  --background: var(--bauhaus-off-white);
+  --foreground: var(--bauhaus-black);
+  --card: var(--bauhaus-white);
+  --card-foreground: var(--bauhaus-black);
+  --popover: var(--bauhaus-white);
+  --popover-foreground: var(--bauhaus-black);
+  --secondary: var(--bauhaus-yellow);
+  --secondary-foreground: var(--bauhaus-black);
+  --muted: var(--bauhaus-muted);
+  --muted-foreground: #606060;
+  --accent: var(--bauhaus-red);
+  --accent-foreground: var(--bauhaus-white);
+  --destructive: var(--bauhaus-red);
+  --destructive-foreground: var(--bauhaus-white);
+  --border: var(--bauhaus-black);
+  --input: var(--bauhaus-white);
+  --ring: var(--bauhaus-blue);
+  --sidebar: var(--bauhaus-white);
+  --sidebar-foreground: var(--bauhaus-black);
+  --sidebar-accent: var(--bauhaus-red);
+  --sidebar-accent-foreground: var(--bauhaus-white);
+  --sidebar-border: var(--bauhaus-black);
+  --sidebar-ring: var(--bauhaus-blue);
+}
+
+/* Light theme only for Bauhaus design */
+.dark {
+  --background: var(--bauhaus-off-white);
+  --foreground: var(--bauhaus-black);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground text-base md:text-lg leading-relaxed;
+    font-family: var(--font-body);
+    font-weight: 500;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+  h1 {
+    @apply text-4xl sm:text-6xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9];
+  }
+  h2 {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold uppercase;
+  }
+  h3 {
+    @apply text-xl sm:text-2xl lg:text-3xl font-bold uppercase;
+  }
+  h4 {
+    @apply text-lg sm:text-xl font-bold uppercase;
+  }
+  .label {
+    @apply uppercase tracking-widest font-bold;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer utilities {
+  /* Assembly Animation Keyframes */
+  @keyframes assembly-circle {
+    0% {
+      border-color: currentColor;
+      background-color: transparent;
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50% {
+      border-color: currentColor;
+      background-color: transparent;
+      opacity: 1;
+    }
+    100% {
+      border-color: currentColor;
+      background-color: currentColor;
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes assembly-square {
+    0% {
+      border-color: currentColor;
+      background-color: transparent;
+      opacity: 0;
+      transform: scale(0.5) rotate(-45deg);
+    }
+    50% {
+      border-color: currentColor;
+      background-color: transparent;
+      opacity: 1;
+    }
+    100% {
+      border-color: currentColor;
+      background-color: currentColor;
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+
+  @keyframes assembly-triangle {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.8);
+    }
+    50% {
+      stroke-width: 4;
+      fill: none;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes snap-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes wobble {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-4px) rotate(-2deg);
+    }
+    50% {
+      transform: translateY(0) rotate(0deg);
+    }
+    75% {
+      transform: translateY(-4px) rotate(2deg);
+    }
+  }
+
+  .animate-assembly-circle {
+    animation: assembly-circle 600ms ease-out forwards;
+  }
+
+  .animate-assembly-square {
+    animation: assembly-square 600ms ease-out forwards;
+  }
+
+  .animate-assembly-triangle {
+    animation: assembly-triangle 600ms ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 300ms ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 300ms ease-out forwards;
+  }
+
+  .animate-snap-in {
+    animation: snap-in 300ms ease-out forwards;
+  }
+
+  .animate-wobble {
+    animation: wobble 400ms ease-in-out;
+  }
+
+  /* Hover wobble effect for cards */
+  .hover-wobble:hover {
+    animation: wobble 400ms ease-in-out;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  /* Bauhaus Hard Shadow Utilities - Exact Specification */
+  .shadow-hard-sm {
+    box-shadow: 3px 3px 0px 0px var(--bauhaus-black);
+  }
+
+  .shadow-hard {
+    box-shadow: 4px 4px 0px 0px var(--bauhaus-black);
+  }
+
+  .shadow-hard-md {
+    box-shadow: 6px 6px 0px 0px var(--bauhaus-black);
+  }
+
+  .shadow-hard-lg {
+    box-shadow: 8px 8px 0px 0px var(--bauhaus-black);
+  }
+
+  /* Bauhaus Border Utilities */
+  .border-bauhaus {
+    border-width: 2px;
+    border-color: var(--bauhaus-black);
+  }
+
+  @media (min-width: 1024px) {
+    .border-bauhaus {
+      border-width: 4px;
+    }
+  }
+
+  .border-bauhaus-thick {
+    border-width: 4px;
+    border-color: var(--bauhaus-black);
+  }
+
+  /* Grid Break Utilities */
+  .grid-break {
+    transform: translateX(20px);
+    z-index: 10;
+  }
+
+  .grid-break-left {
+    transform: translateX(-20px);
+    z-index: 10;
+  }
+
+  .grid-break-overlap {
+    margin-top: -40px;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* Bauhaus Section Blocks - Exact Color Specification */
+  .section-block {
+    @apply py-12 md:py-16 lg:py-24;
+  }
+
+  .section-block-red {
+    @apply bg-[#D02020] text-white;
+  }
+
+  .section-block-blue {
+    @apply bg-[#1040C0] text-white;
+  }
+
+  .section-block-yellow {
+    @apply bg-[#F0C020] text-black;
+  }
+
+  .section-block-white {
+    @apply bg-white text-black;
+  }
+
+  .section-block-off-white {
+    @apply bg-[#F0F0F0] text-black;
+  }
+
+  /* Bauhaus Button Styles */
+  .btn-bauhaus-primary {
+    @apply bg-[#D02020] text-white border-2 border-black font-bold uppercase tracking-wider;
+    box-shadow: 4px 4px 0px 0px var(--bauhaus-black);
+  }
+
+  .btn-bauhaus-primary:hover {
+    @apply bg-[#D02020]/90;
+  }
+
+  .btn-bauhaus-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  .btn-bauhaus-secondary {
+    @apply bg-[#1040C0] text-white border-2 border-black font-bold uppercase tracking-wider;
+    box-shadow: 4px 4px 0px 0px var(--bauhaus-black);
+  }
+
+  .btn-bauhaus-secondary:hover {
+    @apply bg-[#1040C0]/90;
+  }
+
+  .btn-bauhaus-secondary:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  .btn-bauhaus-yellow {
+    @apply bg-[#F0C020] text-black border-2 border-black font-bold uppercase tracking-wider;
+    box-shadow: 4px 4px 0px 0px var(--bauhaus-black);
+  }
+
+  .btn-bauhaus-yellow:hover {
+    @apply bg-[#F0C020]/90;
+  }
+
+  .btn-bauhaus-yellow:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  .btn-bauhaus-outline {
+    @apply bg-white text-black border-2 border-black font-bold uppercase tracking-wider;
+    box-shadow: 4px 4px 0px 0px var(--bauhaus-black);
+  }
+
+  .btn-bauhaus-outline:hover {
+    @apply bg-gray-200;
+  }
+
+  .btn-bauhaus-outline:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  /* Bauhaus Card Base Style */
+  .card-bauhaus {
+    @apply bg-white border-4 border-black;
+    box-shadow: 8px 8px 0px 0px var(--bauhaus-black);
+  }
+
+  .card-bauhaus:hover {
+    @apply -translate-y-1;
+  }
+}

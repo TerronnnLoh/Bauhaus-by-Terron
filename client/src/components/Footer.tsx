@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
 
           <div className="flex gap-4">
             <a
-              href="https://github.com/terronloh"
+              href="https://github.com/TerronnnLoh"
               target="_blank"
               rel="noopener noreferrer"
               className="font-body text-sm hover:text-red-400 transition-colors"

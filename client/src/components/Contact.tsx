@@ -3,8 +3,41 @@
  * Geometric Constructivism Design System
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { BauhausButton } from './BauhausButton';
+
+interface ContactLinkProps {
+  href: string;
+  label: string;
+  value: string;
+  external?: boolean;
+}
+
+const ContactLink: React.FC<ContactLinkProps> = ({ href, label, value, external }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <a
+      href={href}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="block"
+    >
+      <div
+        className="border-4 border-black p-4 md:p-6 bg-white h-full flex flex-col justify-center transition-all duration-200 ease-out"
+        style={{
+          transform: isHovered ? 'translate(4px, 4px)' : undefined,
+          boxShadow: isHovered ? 'none' : '4px 4px 0px 0px black',
+        }}
+      >
+        <p className="font-display font-bold uppercase mb-2 text-sm md:text-base">{label}</p>
+        <p className="font-body text-xs md:text-sm break-all">{value}</p>
+      </div>
+    </a>
+  );
+};
 
 export const Contact: React.FC = () => {
   return (
@@ -20,41 +53,25 @@ export const Contact: React.FC = () => {
 
           {/* Contact Links */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12">
-            <a
+            <ContactLink
               href="mailto:terronlohanderson@gmail.com"
-              className="group"
-            >
-              <div className="border-4 border-black p-4 md:p-6 bg-white hover:bg-black hover:text-white transition-colors duration-200 h-full flex flex-col justify-center">
-                <p className="font-display font-bold uppercase mb-2 text-sm md:text-base">Email</p>
-                <p className="font-body text-xs md:text-sm break-all">
-                  terronlohanderson@gmail.com
-                </p>
-              </div>
-            </a>
+              label="Email"
+              value="terronlohanderson@gmail.com"
+            />
 
-            <a
-              href="https://github.com/terronloh"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group"
-            >
-              <div className="border-4 border-black p-4 md:p-6 bg-white hover:bg-black hover:text-white transition-colors duration-200 h-full flex flex-col justify-center">
-                <p className="font-display font-bold uppercase mb-2 text-sm md:text-base">GitHub</p>
-                <p className="font-body text-xs md:text-sm">github.com/terronloh</p>
-              </div>
-            </a>
+            <ContactLink
+              href="https://github.com/TerronnnLoh"
+              label="GitHub"
+              value="TerronnnLoh"
+              external
+            />
 
-            <a
+            <ContactLink
               href="https://www.linkedin.com/in/terron-loh-a19b922b3/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group"
-            >
-              <div className="border-4 border-black p-4 md:p-6 bg-white hover:bg-black hover:text-white transition-colors duration-200 h-full flex flex-col justify-center">
-                <p className="font-display font-bold uppercase mb-2 text-sm md:text-base">LinkedIn</p>
-                <p className="font-body text-xs md:text-sm">Terron Loh</p>
-              </div>
-            </a>
+              label="LinkedIn"
+              value="Terron Loh"
+              external
+            />
           </div>
 
           {/* CTA Button */}

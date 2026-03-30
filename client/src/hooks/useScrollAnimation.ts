@@ -34,3 +34,47 @@ export const useScrollAnimation = (className: string = 'animate-slide-in-left') 
 
   return ref;
 };
+
+/**
+ * useScrollAnimationMultiple Hook
+ * Triggers animations on multiple elements when they enter viewport
+ * Returns a function to get refs for each element
+ */
+export const useScrollAnimationMultiple = (
+  className: string = 'animate-slide-in-left',
+  count: number
+) => {
+  const refs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(className);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    refs.current.forEach((ref) => {
+      if (ref) {
+        observer.observe(ref);
+      }
+    });
+
+    return () => {
+      refs.current.forEach((ref) => {
+        if (ref) {
+          observer.unobserve(ref);
+        }
+      });
+    };
+  }, [className, count]);
+
+  return refs;
+};

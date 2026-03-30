@@ -59,6 +59,7 @@ export const GeometricShape: React.FC<GeometricShapeProps> = ({
           borderStyle: 'solid',
           borderColor: finalBorderColor,
           backgroundColor: animated ? 'transparent' : baseColor,
+          color: baseColor,
           animationDelay: `${delay}ms`,
           animationDuration: '600ms',
         }}
@@ -81,6 +82,7 @@ export const GeometricShape: React.FC<GeometricShapeProps> = ({
           borderStyle: 'solid',
           borderColor: finalBorderColor,
           backgroundColor: animated ? 'transparent' : baseColor,
+          color: baseColor,
           animationDelay: `${delay}ms`,
           animationDuration: '600ms',
         }}
@@ -99,13 +101,15 @@ export const GeometricShape: React.FC<GeometricShapeProps> = ({
         style={{
           animationDelay: `${delay}ms`,
           animationDuration: '600ms',
+          color: baseColor,
         }}
       >
         <polygon
           points={points}
-          fill={animated ? 'none' : baseColor}
+          fill={animated ? 'transparent' : baseColor}
           stroke={finalBorderColor}
           strokeWidth={borderWidth}
+          className={animated ? 'fill-current' : ''}
         />
       </svg>
     );

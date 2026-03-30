@@ -19,18 +19,14 @@ export default function Home() {
   const handleViewWork = () => {
     const element = document.getElementById('projects');
     if (element) {
-      setTimeout(() => {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
   const handleContact = () => {
     const element = document.getElementById('contact');
     if (element) {
-      setTimeout(() => {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 

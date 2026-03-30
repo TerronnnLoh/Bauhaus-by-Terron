@@ -102,13 +102,23 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  html {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    scroll-padding-top: 100px;
   }
+
   body {
     @apply bg-background text-foreground text-base md:text-lg leading-relaxed;
     font-family: var(--font-body);
     font-weight: 500;
+    min-height: 100vh;
+  }
+
+  *,
+  *::before,
+  *::after {
+    @apply border-border outline-ring/50;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
@@ -190,12 +200,26 @@
     }
     50% {
       stroke-width: 4;
-      fill: none;
+      fill: transparent;
     }
     100% {
       opacity: 1;
       transform: translateY(0) scale(1);
+      fill: currentColor;
     }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
   }
 
   @keyframes slide-in-left {

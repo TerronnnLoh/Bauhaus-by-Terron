@@ -11,8 +11,8 @@ export const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: 'Work', href: '#projects' },
     { label: 'About', href: '#about' },
+    { label: 'Projects', href: '#projects' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -20,7 +20,7 @@ export const Navigation: React.FC = () => {
     const id = href.replace('#', '');
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setIsOpen(false);
     }
   };

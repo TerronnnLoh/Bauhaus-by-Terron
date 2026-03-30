@@ -88,46 +88,148 @@ export const Hero: React.FC<HeroProps> = ({ onViewWork, onContact }) => {
             </div>
           </div>
 
-          {/* Right Panel: Animated Geometric Composition */}
-          <div className="relative h-80 md:h-96 flex items-center justify-center animate-slide-in-right" style={{
+          {/* Right Panel: Animated Bauhaus Geometric Composition */}
+          <div className="relative h-80 md:h-96 w-full max-w-md mx-auto animate-slide-in-right" style={{
             animationDuration: '500ms',
             animationDelay: '400ms',
             animationFillMode: 'both',
           }}>
-            {/* Background Circle */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            {/* Large Yellow L-shape (composed of two rectangles) */}
+            <div className="absolute top-0 left-1/4 animate-float">
+              {animateShapes && (
+                <GeometricShape
+                  type="square"
+                  color="yellow"
+                  size={140}
+                  animated
+                  delay={0}
+                  className="opacity-90"
+                />
+              )}
+            </div>
+            <div className="absolute top-[140px] left-1/4 animate-float" style={{ animationDelay: '650ms' }}>
+              {animateShapes && (
+                <GeometricShape
+                  type="square"
+                  color="yellow"
+                  size={70}
+                  animated
+                  delay={50}
+                  className="opacity-90"
+                />
+              )}
+            </div>
+
+            {/* Red Circle - Left */}
+            <div className="absolute top-8 left-0 animate-float" style={{ animationDelay: '700ms' }}>
+              {animateShapes && (
+                <GeometricShape
+                  type="circle"
+                  color="red"
+                  size={60}
+                  animated
+                  delay={100}
+                />
+              )}
+            </div>
+
+            {/* Blue Circle - Top Right */}
+            <div className="absolute top-0 right-4 animate-float" style={{ animationDelay: '750ms' }}>
               {animateShapes && (
                 <GeometricShape
                   type="circle"
                   color="blue"
-                  size={220}
+                  size={70}
                   animated
-                  delay={0}
+                  delay={150}
                 />
               )}
             </div>
 
-            {/* Rotated Square (Diamond) */}
-            <div className="absolute -top-8 -right-8 md:right-0">
+            {/* Red Rectangle - Horizontal */}
+            <div className="absolute top-[70px] right-0 animate-float" style={{ animationDelay: '800ms' }}>
+              {animateShapes && (
+                <div
+                  className="animate-snap-in"
+                  style={{
+                    animationDelay: '200ms',
+                    animationDuration: '600ms',
+                    animationFillMode: 'both',
+                  }}
+                >
+                  <div
+                    className="bg-[#D02020]"
+                    style={{ width: '120px', height: '50px' }}
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Black Rectangle - Vertical */}
+            <div className="absolute top-[120px] right-8 animate-float" style={{ animationDelay: '850ms' }}>
+              {animateShapes && (
+                <div
+                  className="animate-snap-in"
+                  style={{
+                    animationDelay: '250ms',
+                    animationDuration: '600ms',
+                    animationFillMode: 'both',
+                  }}
+                >
+                  <div
+                    className="bg-[#121212]"
+                    style={{ width: '60px', height: '100px' }}
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Blue Square - Bottom Left */}
+            <div className="absolute bottom-8 left-4 animate-float" style={{ animationDelay: '900ms' }}>
+              {animateShapes && (
+                <GeometricShape
+                  type="square"
+                  color="blue"
+                  size={55}
+                  animated
+                  delay={300}
+                />
+              )}
+            </div>
+
+            {/* Red Circle - Bottom Center */}
+            <div className="absolute bottom-8 left-1/3 animate-float" style={{ animationDelay: '950ms' }}>
+              {animateShapes && (
+                <GeometricShape
+                  type="circle"
+                  color="red"
+                  size={55}
+                  animated
+                  delay={350}
+                />
+              )}
+            </div>
+
+            {/* Red Square - Center */}
+            <div className="absolute top-[180px] right-16 animate-float" style={{ animationDelay: '880ms' }}>
               {animateShapes && (
                 <GeometricShape
                   type="square"
                   color="red"
-                  size={160}
+                  size={50}
                   animated
-                  delay={200}
-                  className="rotate-45"
+                  delay={280}
                 />
               )}
             </div>
 
-            {/* Triangle */}
-            <div className="absolute -bottom-4 -left-4 md:left-8">
+            {/* Black Square - Bottom Right */}
+            <div className="absolute bottom-0 right-12 animate-float" style={{ animationDelay: '1000ms' }}>
               {animateShapes && (
                 <GeometricShape
-                  type="triangle"
-                  color="yellow"
-                  size={140}
+                  type="square"
+                  color="black"
+                  size={55}
                   animated
                   delay={400}
                 />

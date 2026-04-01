@@ -222,6 +222,69 @@
     animation: float 3s ease-in-out infinite;
   }
 
+  @keyframes float-and-rotate {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-8px) rotate(180deg);
+    }
+    100% {
+      transform: translateY(0) rotate(360deg);
+    }
+  }
+
+  .animate-float-rotate {
+    animation: float-and-rotate 8s ease-in-out infinite;
+  }
+
+  @keyframes rotate-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-rotate-slow {
+    animation: rotate-slow 15s linear infinite;
+  }
+
+  /* Scroll reveal animations - for elements that animate on scroll */
+  .scroll-reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 500ms ease-out, transform 500ms ease-out;
+  }
+
+  .scroll-reveal-left.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scroll-reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 500ms ease-out, transform 500ms ease-out;
+  }
+
+  .scroll-reveal-right.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scroll-reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 500ms ease-out, transform 500ms ease-out;
+  }
+
+  .scroll-reveal-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   @keyframes slide-in-left {
     from {
       opacity: 0;

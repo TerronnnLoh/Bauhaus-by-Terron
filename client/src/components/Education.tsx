@@ -48,7 +48,7 @@ export const Education: React.FC = () => {
           </div>
 
           {/* Primary Education */}
-                    <div className="space-y-4">
+           <div className="space-y-4">
             <BauhausCard color="white" className="p-6">
               <h3 className="font-display font-bold uppercase mb-2 text-lg md:text-xl">
                 ChongFu Primary
@@ -60,7 +60,7 @@ export const Education: React.FC = () => {
             </BauhausCard>
             
           </div>
-                      <div className="bg-[#1040C0] p-4 border-2 border-black shadow-[4px_4px_0px_0px_black]">
+            <div className="bg-[#1040C0] p-4 border-4 border-black shadow-[4px_4px_0px_0px_black]">
               <h4 className="font-display font-bold uppercase mb-3 text-white text-sm md:text-base">Relevant Coursework</h4>
               <div className="space-y-2">
                 {coursework.map((course) => (

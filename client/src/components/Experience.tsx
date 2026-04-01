@@ -8,12 +8,12 @@ import { BauhausCard } from './BauhausCard';
 import { useScrollAnimationMultiple } from '@/hooks/useScrollAnimation';
 
 export const Experience: React.FC = () => {
-  // Scroll animation refs for DBS cards (3 cards)
-  const dbsCardRefs = useScrollAnimationMultiple('animate-slide-in-right', 3);
-  // Scroll animation refs for Makerspace cards (2 cards)
-  const makerspaceCardRefs = useScrollAnimationMultiple('animate-slide-in-right', 2);
-  // Scroll animation refs for skill cards (4 cards)
-  const skillCardRefs = useScrollAnimationMultiple('animate-snap-in', 4);
+  // Scroll animation refs for DBS cards (3 cards) - slide in from right
+  const dbsCardRefs = useScrollAnimationMultiple('in-view', 3);
+  // Scroll animation refs for Makerspace cards (2 cards) - slide in from right
+  const makerspaceCardRefs = useScrollAnimationMultiple('in-view', 2);
+  // Scroll animation refs for skill cards (4 cards) - slide up
+  const skillCardRefs = useScrollAnimationMultiple('in-view', 4);
 
   return (
     <section className="section-block section-block-off-white border-b-4 border-black">
@@ -38,7 +38,7 @@ export const Experience: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <div ref={(el) => { dbsCardRefs.current[0] = el; }}>
+              <div ref={(el) => { dbsCardRefs.current[0] = el; }} className="scroll-reveal-right">
                 <BauhausCard color="white" cornerDecoration className="p-6">
                   <h4 className="font-bold uppercase mb-3 text-base sm:text-lg">What I Built</h4>
                   <ul className="font-medium text-sm space-y-2">
@@ -48,7 +48,7 @@ export const Experience: React.FC = () => {
                 </BauhausCard>
               </div>
 
-              <div ref={(el) => { dbsCardRefs.current[1] = el; }}>
+              <div ref={(el) => { dbsCardRefs.current[1] = el; }} className="scroll-reveal-right" style={{ transitionDelay: '100ms' }}>
                 <BauhausCard color="white" cornerDecoration className="p-6">
                   <h4 className="font-bold uppercase mb-3 text-base sm:text-lg">Technologies</h4>
                   <p className="font-medium text-sm leading-relaxed">
@@ -58,7 +58,7 @@ export const Experience: React.FC = () => {
                 </BauhausCard>
               </div>
 
-              <div ref={(el) => { dbsCardRefs.current[2] = el; }}>
+              <div ref={(el) => { dbsCardRefs.current[2] = el; }} className="scroll-reveal-right" style={{ transitionDelay: '200ms' }}>
                 <BauhausCard color="white" cornerDecoration className="p-6">
                   <h4 className="font-bold uppercase mb-3 text-base sm:text-lg">What I Improved</h4>
                   <ul className="font-medium text-sm space-y-2">
@@ -85,7 +85,7 @@ export const Experience: React.FC = () => {
               </div>
 
               <div className="space-y-4">
-                <div ref={(el) => { makerspaceCardRefs.current[0] = el; }}>
+                <div ref={(el) => { makerspaceCardRefs.current[0] = el; }} className="scroll-reveal-right">
                   <BauhausCard color="white" cornerDecoration className="p-6">
                     <h4 className="font-bold uppercase mb-3 text-base sm:text-lg">What I Do</h4>
                     <ul className="font-medium text-sm space-y-2">
@@ -96,7 +96,7 @@ export const Experience: React.FC = () => {
                   </BauhausCard>
                 </div>
 
-                <div ref={(el) => { makerspaceCardRefs.current[1] = el; }}>
+                <div ref={(el) => { makerspaceCardRefs.current[1] = el; }} className="scroll-reveal-right" style={{ transitionDelay: '100ms' }}>
                   <BauhausCard color="white" cornerDecoration className="p-6">
                     <h4 className="font-bold uppercase mb-3 text-base sm:text-lg">Skills</h4>
                     <p className="font-medium text-sm leading-relaxed">
@@ -108,11 +108,9 @@ export const Experience: React.FC = () => {
             </div>
           </div>
 
-
-
           {/* Skills Grid */}
           <div className="border-t-4 border-black pt-12 lg:pt-16">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 px-2">
               {[
                 { name: 'Leathercraft', color: 'red' as const },
                 { name: '3D Printing', color: 'blue' as const },
@@ -122,6 +120,8 @@ export const Experience: React.FC = () => {
                 <div
                   key={skill.name}
                   ref={(el) => { skillCardRefs.current[index] = el; }}
+                  className="scroll-reveal-up"
+                  style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <BauhausCard
                     color={skill.color}

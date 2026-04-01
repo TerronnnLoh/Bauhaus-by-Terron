@@ -46,11 +46,11 @@ export const Hero: React.FC<HeroProps> = ({ onViewWork, onContact }) => {
               <span className="block w-1 h-80 md:h-69 bg-black rounded-sm flex-shrink-0" />
               <div>
                 <h1 className="text-6xl md:text-7xl font-black uppercase tracking-tighter leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
-                  BUILT,
+                  BUILD,
                   <br />
-                  <span className="text-[#D02020]">BROKEN,</span>
+                  <span className="text-[#D02020]">REBUILD,</span>
                   <br />
-                  REBUILT
+                  REFINE
                 </h1>
                 <span className="block h-1 w-52 md:w-80 bg-black mt-4" />
               </div>
@@ -93,13 +93,14 @@ export const Hero: React.FC<HeroProps> = ({ onViewWork, onContact }) => {
             animationDuration: '500ms',
             animationDelay: '400ms',
             animationFillMode: 'both',
+            color: 'currentColor',
           }}>
-            {/* Large Yellow L-shape (composed of two rectangles) */}
+            {/* Large Red L-shape (composed of two rectangles) */}
             <div className="absolute top-0 left-1/4 animate-float">
               {animateShapes && (
                 <GeometricShape
                   type="square"
-                  color="yellow"
+                  color="red"
                   size={140}
                   animated
                   delay={0}
@@ -107,7 +108,7 @@ export const Hero: React.FC<HeroProps> = ({ onViewWork, onContact }) => {
                 />
               )}
             </div>
-            <div className="absolute top-[140px] left-1/4 animate-float" style={{ animationDelay: '650ms' }}>
+            <div className="absolute top-[140px] left-1/4 animate-rotate-slow" style={{ animationDelay: '0ms' }}>
               {animateShapes && (
                 <GeometricShape
                   type="square"
@@ -120,12 +121,12 @@ export const Hero: React.FC<HeroProps> = ({ onViewWork, onContact }) => {
               )}
             </div>
 
-            {/* Red Circle - Left */}
+            {/* Blue Circle - Left */}
             <div className="absolute top-8 left-0 animate-float" style={{ animationDelay: '700ms' }}>
               {animateShapes && (
                 <GeometricShape
                   type="circle"
-                  color="red"
+                  color="blue"
                   size={60}
                   animated
                   delay={100}
@@ -146,7 +147,7 @@ export const Hero: React.FC<HeroProps> = ({ onViewWork, onContact }) => {
               )}
             </div>
 
-            {/* Red Rectangle - Horizontal */}
+            {/* Yellow Rectangle - Horizontal */}
             <div className="absolute top-[70px] right-0 animate-float" style={{ animationDelay: '800ms' }}>
               {animateShapes && (
                 <div
@@ -158,15 +159,15 @@ export const Hero: React.FC<HeroProps> = ({ onViewWork, onContact }) => {
                   }}
                 >
                   <div
-                    className="bg-[#D02020]"
+                    className="bg-[#F0C020]"
                     style={{ width: '120px', height: '50px' }}
                   />
                 </div>
               )}
             </div>
 
-            {/* Black Rectangle - Vertical */}
-            <div className="absolute top-[120px] right-8 animate-float" style={{ animationDelay: '850ms' }}>
+            {/* Red Rectangle - Vertical */}
+            <div className="absolute top-[120px] right-8 animate-slow" style={{ animationDelay: '850ms' }}>
               {animateShapes && (
                 <div
                   className="animate-snap-in"
@@ -177,19 +178,19 @@ export const Hero: React.FC<HeroProps> = ({ onViewWork, onContact }) => {
                   }}
                 >
                   <div
-                    className="bg-[#121212]"
+                    className="bg-[#D02020]"
                     style={{ width: '60px', height: '100px' }}
                   />
                 </div>
               )}
             </div>
 
-            {/* Blue Square - Bottom Left */}
-            <div className="absolute bottom-8 left-4 animate-float" style={{ animationDelay: '900ms' }}>
+            {/* Yellow Square - Bottom Left */}
+            <div className="absolute bottom-8 left-4 animate-float-rotate" style={{ animationDelay: '900ms' }}>
               {animateShapes && (
                 <GeometricShape
                   type="square"
-                  color="blue"
+                  color="yellow"
                   size={55}
                   animated
                   delay={300}
@@ -211,11 +212,11 @@ export const Hero: React.FC<HeroProps> = ({ onViewWork, onContact }) => {
             </div>
 
             {/* Red Square - Center */}
-            <div className="absolute top-[180px] right-16 animate-float" style={{ animationDelay: '880ms' }}>
+            <div className="absolute top-[180px] right-16 animate-rotate-slow" style={{ animationDelay: '1000ms' }}>
               {animateShapes && (
                 <GeometricShape
                   type="square"
-                  color="red"
+                  color="blue"
                   size={50}
                   animated
                   delay={280}

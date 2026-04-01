@@ -38,7 +38,7 @@ export const useScrollAnimation = (className: string = 'animate-slide-in-left') 
 /**
  * useScrollAnimationMultiple Hook
  * Triggers animations on multiple elements when they enter viewport
- * Returns a function to get refs for each element
+ * Adds animation on scroll in, removes on scroll out
  */
 export const useScrollAnimationMultiple = (
   className: string = 'animate-slide-in-left',
@@ -52,12 +52,13 @@ export const useScrollAnimationMultiple = (
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add(className);
-            observer.unobserve(entry.target);
+          } else {
+            entry.target.classList.remove(className);
           }
         });
       },
       {
-        threshold: 0.1,
+        threshold: 0.05,
       }
     );
 

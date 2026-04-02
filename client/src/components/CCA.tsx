@@ -3,7 +3,7 @@
  * Geometric Constructivism Design System
  */
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Circle, Square, Triangle } from 'lucide-react';
 
 interface Event {
@@ -86,12 +86,45 @@ const iconColorMap = {
 };
 
 export const CCA: React.FC = () => {
+  const eventRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          } else {
+            entry.target.classList.remove('in-view');
+          }
+        });
+      },
+      {
+        threshold: 0.05,
+      }
+    );
+
+    eventRefs.current.forEach((ref) => {
+      if (ref) {
+        observer.observe(ref);
+      }
+    });
+
+    return () => {
+      eventRefs.current.forEach((ref) => {
+        if (ref) {
+          observer.unobserve(ref);
+        }
+      });
+    };
+  }, []);
+
   return (
     <section className="section-block section-block-white border-b-4 border-black">
       <div className="container mx-auto px-4 md:px-8">
         <h2 className="mb-4 uppercase">Community & Events</h2>
         <p className="font-body mb-12 max-w-2xl">
-          Makers Innovators Tribe (MiT) — A CCA in MakerspaceNYP where I lead and assist in
+          Makers Innovators Tribe (MiT) — A CCA in MakerspaceNYP where we host and assist in
           various events combining creativity, sustainability, and community engagement.
         </p>
 
@@ -103,30 +136,31 @@ export const CCA: React.FC = () => {
             return (
               <div
                 key={event.name}
-                className="animate-snap-in"
+                ref={(el) => { eventRefs.current[index] = el; }}
+                className="scroll-reveal-up sink-hover-parent"
                 style={{
-                  animationDelay: `${index * 50}ms`,
+                  transitionDelay: `${index * 80}ms`,
                 }}
               >
                 <div
-                  className="border-4 border-black p-4 flex items-center gap-4 shadow-[4px_4px_0px_0px_black] transition-all duration-200 ease-out hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none"
+                  className="sink-hover-child border-4 border-black p-4 flex items-center gap-4 shadow-[4px_4px_0px_0px_black] cursor-pointer transition-all duration-150 ease-out"
                   style={{
                     backgroundColor: event.bgColor,
                   }}
                 >
                   <div
-                    className="w-12 h-12 border-2 border-black flex items-center justify-center flex-shrink-0 shadow-[2px_2px_0px_0px_black]"
+                    className="sink-hover-child w-12 h-12 border-2 border-black flex items-center justify-center flex-shrink-0 shadow-[2px_2px_0px_0px_black] transition-all duration-150 ease-out"
                     style={{
                       backgroundColor: iconColor,
                     }}
                   >
-                    <IconComponent 
-                      className="w-6 h-6" 
-                      style={{ 
+                    <IconComponent
+                      className="w-6 h-6"
+                      style={{
                         color: '#FFFFFF',
                         strokeWidth: 3,
                         transform: event.icon === 'square' ? 'rotate(45deg)' : undefined,
-                      }} 
+                      }}
                     />
                   </div>
                   <div className="flex-grow">

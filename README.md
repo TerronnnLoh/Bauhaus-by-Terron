@@ -42,3 +42,4 @@ npm run dev
 Still working on github pages to get this website live!
 Do stay tune ;)
 
+![](client\public\images\frontpage.png)

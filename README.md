@@ -42,4 +42,6 @@ npm run dev
 Still working on github pages to get this website live!
 Do stay tune ;)
 
-![](client\public\images\frontpage.png)
+
+## Portfolio Preview
+![](client/public/images/frontpage.png)

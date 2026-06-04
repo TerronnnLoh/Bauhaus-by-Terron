@@ -59,7 +59,7 @@ export const Navigation: React.FC = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            item.path === '/projects' ? (
+            item.href.startsWith('/') ? (
               <Link key={item.label} href={item.path}>
                 <a className="font-display font-bold uppercase text-sm hover:text-red-600 transition-colors">
                   {item.label}
@@ -92,7 +92,7 @@ export const Navigation: React.FC = () => {
         <div className="md:hidden border-t-4 border-black bg-white">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             {navItems.map((item) => (
-              item.path === '/projects' ? (
+              item.href.startsWith('/') ? (
                 <Link key={item.label} href={item.path}>
                   <a
                     className="font-display font-bold uppercase text-left py-2 hover:text-red-600 transition-colors"

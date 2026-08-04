@@ -6,7 +6,6 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import ProjectsPage from "./pages/Projects";
-import HobbiesPage from "./pages/Hobbies";
 
 
 function AppRouter() {
@@ -15,7 +14,6 @@ function AppRouter() {
       <Switch>
         <Route path={"/"} component={Home} />
         <Route path={"/projects"} component={ProjectsPage} />
-        <Route path={"/hobbies"} component={HobbiesPage} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />

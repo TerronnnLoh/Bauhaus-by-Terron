@@ -10,12 +10,11 @@ import { Link, useLocation } from 'wouter';
 
 export const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
 
   const navItems = [
     { label: 'About', href: '#about', path: '/' },
-    { label: 'Work', href: '/projects', path: '/projects' },
-    {label: 'Hobbies', href: '/hobbies', path: '/hobbies'},
+    { label: 'Projects', href: '/projects', path: '/projects' },
     { label: 'Contact', href: '#contact', path: '/' },
   ];
 
@@ -29,15 +28,21 @@ export const Navigation: React.FC = () => {
   };
 
   const handleNavClick = (item: typeof navItems[0]) => {
-    if (item.path !== location && item.path !== '/') {
-      // Navigate to different page
+    // If the item points to a different path, navigate there.
+    // Include hash (e.g. '/#about') so the browser will scroll to the section after navigation.
+    const target = item.path + (item.href && item.href.startsWith('#') ? item.href : '');
+
+    if (item.path !== location) {
+      setLocation(target);
+      setIsOpen(false);
       return;
-    } else if (location !== '/') {
-      // Go to home first, then scroll
-      handleScroll(item.href);
-    } else {
+    }
+
+    // Same path: perform in-page scroll if hash present
+    if (item.href && item.href.startsWith('#')) {
       handleScroll(item.href);
     }
+
     setIsOpen(false);
   };
 

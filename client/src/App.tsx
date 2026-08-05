@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import ProjectsPage from "./pages/Projects";
+import { BackToTopButton } from "./components/BackToTopButton";
 
 
 function AppRouter() {
@@ -36,6 +37,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <AppRouter />
+          <BackToTopButton />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
